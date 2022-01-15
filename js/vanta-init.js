@@ -1,0 +1,1 @@
+VANTA.HALO({el:"#vanta-canvas",mouseControls:true,touchControls:true,gyroControls:true,minHeight:937.00,minWidth:800.00,baseColor:0xffff,backgroundColor:0x9336e,amplitudeFactor:1.8,xOffset:0.12,size:1.5})

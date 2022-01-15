@@ -1,0 +1,9 @@
+function kill_ctrl_key_combo(e){var forbiddenKeys=new Array('a','c','x','s','u');var key;var isCtrl;if(window.event){key=window.event.keyCode;if(window.event.ctrlKey)isCtrl=true;else isCtrl=false;}else{key=e.which;if(e.ctrlKey)isCtrl=true;else isCtrl=false;}
+if(isCtrl){for(i=0;i<forbiddenKeys.length;i++){if(forbiddenKeys[i].toLowerCase()==String.fromCharCode(key).toLowerCase()){window.open("https://twitter.com/home?lang=en-gb","_self");return false;}}}
+return true;}
+function disable_selection(target){if(typeof target.style.MozUserSelect!="undefined"){target.style.MozUserSelect="none";}
+target.style.cursor="default";}
+function enable_protection(){disable_selection(document.body);document.captureEvents(Event.MOUSEDOWN);document.onmousedown=double_mouse;document.oncontextmenu=function(){return false;};document.onkeydown=kill_ctrl_key_combo;}
+window.onload=function(){enable_protection();};document.ondragstart=noselect;document.onselectstart=noselect;document.oncontextmenu=noselect;function noselect(){return false;}
+$(document).keydown(function(event){if(event.keyCode==123){return false;}else if(event.ctrlKey&&event.shiftKey&&event.keyCode==73){return false;}});$(document).on("contextmenu",function(e){e.preventDefault();});document.onkeydown=function(e){if(e.ctrlKey&&(e.keyCode===67||e.keyCode===86||e.keyCode===85||e.keyCode===117)){}
+return false;};window.onkeydown=function(evt){if(evt.keyCode==123||evt.keyCode==85||evt.keyCode==17||evt.keyCode==16||evt.keyCode==74||evt.keyCode==116||evt.keyCode==73)return false;};window.onkeypress=function(evt){if(evt.keyCode==123||evt.keyCode==85||evt.keyCode==17||evt.keyCode==16||evt.keyCode==74||evt.keyCode==116||evt.keyCode==73)return false;};function disableF5(e){if((e.which||e.keyCode)==116)e.preventDefault();};$(document).on("keydown",disableF5);
